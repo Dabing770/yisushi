@@ -2,11 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile navigation toggle
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('.nav');
 
     if (mobileNavToggle) {
         mobileNavToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
+            mobileNavToggle.setAttribute('aria-expanded', nav.classList.contains('active').toString());
         });
     }
 
@@ -96,6 +97,7 @@ const translations = {
     en: {
         home: 'Home',
         mobileMenu: 'Menu',
+        menuSearch: 'Search the menu...',
         makeReservation: 'Make a Reservation',
         callButton: 'Call 0449819446',
         viewMenu: 'View Menu',
@@ -118,12 +120,14 @@ const translations = {
         lunchHours: 'Lunch Hours',
         reservation: 'Reservation',
         reservationInfo: 'Please make a reservation by phone:',
-        contact: 'Contact Us',
+        contact: 'Contact',
         phone: 'Phone',
+        lunchFull: 'Lunch on weekdays 10:30-15:00 and weekends 11:30-16:00.',
     },
     fi: {
         home: 'Etusivu',
         mobileMenu: 'Valikko',
+        menuSearch: 'Hae ruokalistalta...',
         makeReservation: 'Tee pöytävaraus',
         callButton: 'Soita 0449819446',
         viewMenu: 'Katso menu',
@@ -146,8 +150,9 @@ const translations = {
         lunchHours: 'Lounasajat',
         reservation: 'Pöytävaraus',
         reservationInfo: 'Teethän pöytävarauksen puhelimitse numeroon:',
-        contact: 'Ota yhteyttä',
+        contact: 'Yhteystiedot',
         phone: 'Puhelin',
+        lunchFull: 'Lounas on arkisin 10:30-15:00 ja viikonloppuisin 11:30-16:00.',
     }
 };
 
@@ -160,6 +165,13 @@ function setLanguage(lang) {
         const key = el.dataset.translate;
         if (translations[lang] && translations[lang][key]) {
             el.textContent = translations[lang][key];
+        }
+    });
+
+    document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+        const key = el.dataset.translatePlaceholder;
+        if (translations[lang] && translations[lang][key]) {
+            el.setAttribute('placeholder', translations[lang][key]);
         }
     });
 

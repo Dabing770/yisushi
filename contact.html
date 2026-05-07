@@ -1,65 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Yi Sushi</title>
-    <meta name="description" content="Contact Yi Sushi.">
-    <meta property="og:title" content="Contact - Yi Sushi">
-    <meta property="og:description" content="Contact Yi Sushi.">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a href="./index.html" class="logo">Yi Sushi</a>
-            <nav>
-                <ul>
-                    <li><a href="./index.html" data-translate="home">Etusivu</a></li>
-                    <li><a href="./about.html" data-translate="aboutUs">Meistä</a></li>
-                    <li><a href="./menu.html" data-translate="menu">Menu</a></li>
-                    <li><a href="./location.html" data-translate="location">Sijainti</a></li>
-                    <li><a href="./hours.html" data-translate="openingHours">Aukioloajat</a></li>
-                    <li><a href="./reservation.html" data-translate="reservation">Pöytävaraus</a></li>
-                    <li><a href="./contact.html" class="active" data-translate="contact">Yhteystiedot</a></li>
-                </ul>
-                <div class="lang-switcher">
-                    <a href="#" class="lang-active" data-lang="fi">FI</a> | <a href="#" data-lang="en">EN</a>
-                </div>
-            </nav>
-            <button class="mobile-nav-toggle" data-translate="mobileMenu">Valikko</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yhteystiedot - Yi Sushi</title>
+    <meta
+      name="description"
+      content="Yi Sushin puhelin, osoite ja aukioloajat."
+    />
+    <meta property="og:title" content="Yhteystiedot - Yi Sushi" />
+    <meta property="og:description" content="Ota yhteyttä Yi Sushiin." />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="./index.html">Yi Sushi</a>
+        <button class="mobile-nav-toggle" type="button" data-translate="mobileMenu">Valikko</button>
+        <div class="nav-links">
+          <a href="./index.html" data-translate="home">Etusivu</a>
+          <a href="./about.html" data-translate="aboutUs">Meistä</a>
+          <a href="./menu.html" data-translate="menu">Menu</a>
+          <a href="./location.html" data-translate="location">Sijainti</a>
+          <a href="./hours.html" data-translate="openingHours">Aukioloajat</a>
+          <a href="./reservation.html" data-translate="reservation">Pöytävaraus</a>
+          <a href="./contact.html" class="active" data-translate="contact">Yhteystiedot</a>
         </div>
+        <div class="lang-switcher" aria-label="Language selection">
+          <a href="#" class="lang-active" data-lang="fi">FI</a>
+          <span>|</span>
+          <a href="#" data-lang="en">EN</a>
+        </div>
+      </nav>
     </header>
 
-    <main id="contact-page">
-        <div class="container">
-            <h1 data-translate="contact">Ota yhteyttä</h1>
-            <div class="contact-info">
-                <div class="info-item">
-                    <h3 data-translate="phone">Puhelin</h3>
-                    <p><a href="tel:0449819446">044 981 9446</a></p>
-                </div>
-                <div class="info-item">
-                    <h3 data-translate="address">Osoite</h3>
-                    <p>Heimolinnankatu 6, 32200 Loimaa, Finland</p>
-                </div>
-                <div class="info-item">
-                    <h3 data-translate="openingHours">Aukioloajat</h3>
-                    <p>MA–TI: 10:30–15:00</p>
-                    <p>KE–PE: 10:30–20:00</p>
-                    <p>LA–SU: 11:30–20:00</p>
-                </div>
-            </div>
-        </div>
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Yi Sushi</p>
+        <h1 data-translate="contact">Yhteystiedot</h1>
+      </section>
+
+      <section class="contact-info">
+        <article class="info-item">
+          <span class="meta-label" data-translate="phone">Puhelin</span>
+          <h3><a href="tel:0449819446">0449819446</a></h3>
+        </article>
+        <article class="info-item">
+          <span class="meta-label" data-translate="address">Osoite</span>
+          <h3>Heimolinnankatu 6</h3>
+          <p>32200 Loimaa, Finland</p>
+        </article>
+        <article class="info-item">
+          <span class="meta-label" data-translate="openingHours">Aukioloajat</span>
+          <h3>MA-TI 10:30-15:00</h3>
+          <p>KE-PE 10:30-20:00<br />LA-SU 11:30-20:00</p>
+        </article>
+      </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Yi Sushi</p>
-        </div>
+    <footer class="footer">
+      <p>© 2026 Yi Sushi. Heimolinnankatu 6, 32200 Loimaa, Finland.</p>
     </footer>
 
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>

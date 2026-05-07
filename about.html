@@ -1,57 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Yi Sushi</title>
-    <meta name="description" content="Learn more about Yi Sushi, a restaurant in Loimaa that offers a unique blend of fresh sushi and authentic Chinese cuisine.">
-    <meta property="og:title" content="About Us - Yi Sushi">
-    <meta property="og:description" content="Learn more about Yi Sushi, a restaurant in Loimaa that offers a unique blend of fresh sushi and authentic Chinese cuisine.">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a href="./index.html" class="logo">Yi Sushi</a>
-            <nav>
-                <ul>
-                    <li><a href="./index.html" data-translate="home">Etusivu</a></li>
-                    <li><a href="./about.html" class="active" data-translate="aboutUs">Meistä</a></li>
-                    <li><a href="./menu.html" data-translate="menu">Menu</a></li>
-                    <li><a href="./location.html" data-translate="location">Sijainti</a></li>
-                    <li><a href="./hours.html" data-translate="openingHours">Aukioloajat</a></li>
-                    <li><a href="./reservation.html" data-translate="reservation">Pöytävaraus</a></li>
-                    <li><a href="./contact.html" data-translate="contact">Yhteystiedot</a></li>
-                </ul>
-                <div class="lang-switcher">
-                    <a href="#" class="lang-active" data-lang="fi">FI</a> | <a href="#" data-lang="en">EN</a>
-                </div>
-            </nav>
-            <button class="mobile-nav-toggle" data-translate="mobileMenu">Valikko</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meistä - Yi Sushi</title>
+    <meta
+      name="description"
+      content="Yi Sushi on Loimaalla toimiva sushi ja kiinalainen ravintola."
+    />
+    <meta property="og:title" content="Meistä - Yi Sushi" />
+    <meta
+      property="og:description"
+      content="Tuoretta sushia, kiinalaisia makuja ja lämmintä palvelua Loimaalla."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="./index.html">Yi Sushi</a>
+        <button class="mobile-nav-toggle" type="button" data-translate="mobileMenu">Valikko</button>
+        <div class="nav-links">
+          <a href="./index.html" data-translate="home">Etusivu</a>
+          <a href="./about.html" class="active" data-translate="aboutUs">Meistä</a>
+          <a href="./menu.html" data-translate="menu">Menu</a>
+          <a href="./location.html" data-translate="location">Sijainti</a>
+          <a href="./hours.html" data-translate="openingHours">Aukioloajat</a>
+          <a href="./reservation.html" data-translate="reservation">Pöytävaraus</a>
+          <a href="./contact.html" data-translate="contact">Yhteystiedot</a>
         </div>
+        <div class="lang-switcher" aria-label="Language selection">
+          <a href="#" class="lang-active" data-lang="fi">FI</a>
+          <span>|</span>
+          <a href="#" data-lang="en">EN</a>
+        </div>
+      </nav>
     </header>
 
-    <main id="about">
-        <div class="container">
-            <h1 data-translate="aboutUs">Meistä</h1>
-            <div class="about-content">
-                <p data-translate="aboutText1">
-                    Yi Sushi on perheomisteinen ravintola Loimaan sydämessä. Tarjoamme ylpeänä yhdistelmän aitoja kiinalaisia makuja ja tuoretta, laadukasta sushia. Meille on tärkeää käyttää parhaita raaka-aineita ja valmistaa jokainen annos huolella ja rakkaudella.
-                </p>
-                <p data-translate="aboutText2">
-                    Olipa kyseessä lounas, illallinen tai noutoateria, tavoitteemme on aina tarjota lämmin palvelu ja herkullinen makuelämys. Uskomme, että hyvä ruoka yhdistää ihmisiä, ja haluamme olla paikka, jossa paikalliset voivat kokoontua nauttimaan hyvästä seurasta ja erinomaisesta ateriasta. Tervetuloa tutustumaan!
-                </p>
-            </div>
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Yi Sushi</p>
+        <h1 data-translate="aboutUs">Meistä</h1>
+      </section>
+
+      <section class="page-section narrow">
+        <div class="about-content">
+          <p data-translate="aboutText1">
+            Yi Sushi on perheomisteinen ravintola Loimaan sydämessä. Tarjoamme
+            yhdistelmän kiinalaisia makuja ja tuoretta, laadukasta sushia.
+          </p>
+          <p data-translate="aboutText2">
+            Olipa kyseessä lounas, illallinen tai noutoateria, tavoitteemme on
+            tarjota lämmin palvelu ja herkullinen makuelämys paikallisille
+            asiakkaille.
+          </p>
         </div>
+      </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Yi Sushi</p>
-        </div>
+    <footer class="footer">
+      <p>© 2026 Yi Sushi. Heimolinnankatu 6, 32200 Loimaa, Finland.</p>
     </footer>
 
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>

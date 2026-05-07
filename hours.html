@@ -1,60 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opening Hours - Yi Sushi</title>
-    <meta name="description" content="Yi Sushi opening hours.">
-    <meta property="og:title" content="Opening Hours - Yi Sushi">
-    <meta property="og:description" content="Yi Sushi opening hours.">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a href="./index.html" class="logo">Yi Sushi</a>
-            <nav>
-                <ul>
-                    <li><a href="./index.html" data-translate="home">Etusivu</a></li>
-                    <li><a href="./about.html" data-translate="aboutUs">Meistä</a></li>
-                    <li><a href="./menu.html" data-translate="menu">Menu</a></li>
-                    <li><a href="./location.html" data-translate="location">Sijainti</a></li>
-                    <li><a href="./hours.html" class="active" data-translate="openingHours">Aukioloajat</a></li>
-                    <li><a href="./reservation.html" data-translate="reservation">Pöytävaraus</a></li>
-                    <li><a href="./contact.html" data-translate="contact">Yhteystiedot</a></li>
-                </ul>
-                <div class="lang-switcher">
-                    <a href="#" class="lang-active" data-lang="fi">FI</a> | <a href="#" data-lang="en">EN</a>
-                </div>
-            </nav>
-            <button class="mobile-nav-toggle" data-translate="mobileMenu">Valikko</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aukioloajat - Yi Sushi</title>
+    <meta name="description" content="Yi Sushin aukioloajat ja lounasajat." />
+    <meta property="og:title" content="Aukioloajat - Yi Sushi" />
+    <meta property="og:description" content="Yi Sushin aukioloajat ja lounasajat." />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="./index.html">Yi Sushi</a>
+        <button class="mobile-nav-toggle" type="button" data-translate="mobileMenu">Valikko</button>
+        <div class="nav-links">
+          <a href="./index.html" data-translate="home">Etusivu</a>
+          <a href="./about.html" data-translate="aboutUs">Meistä</a>
+          <a href="./menu.html" data-translate="menu">Menu</a>
+          <a href="./location.html" data-translate="location">Sijainti</a>
+          <a href="./hours.html" class="active" data-translate="openingHours">Aukioloajat</a>
+          <a href="./reservation.html" data-translate="reservation">Pöytävaraus</a>
+          <a href="./contact.html" data-translate="contact">Yhteystiedot</a>
         </div>
+        <div class="lang-switcher" aria-label="Language selection">
+          <a href="#" class="lang-active" data-lang="fi">FI</a>
+          <span>|</span>
+          <a href="#" data-lang="en">EN</a>
+        </div>
+      </nav>
     </header>
 
-    <main id="hours-page">
-        <div class="container">
-            <h1 data-translate="openingHours">Aukioloajat</h1>
-            <div class="hours-content">
-                <ul>
-                    <li><span class="day">MA–TI:</span> 10:30–15:00</li>
-                    <li><span class="day">KE–PE:</span> 10:30–20:00</li>
-                    <li><span class="day">LA–SU:</span> 11:30–20:00</li>
-                </ul>
-                <div class="lunch-hours">
-                    <h2 data-translate="lunchHours">Lounasajat</h2>
-                    <p>Lounas on arkisin 10:30–15:00 ja viikonloppuisin 11:30–16:00</p>
-                </div>
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Yi Sushi</p>
+        <h1 data-translate="openingHours">Aukioloajat</h1>
+      </section>
+
+      <section class="page-section">
+        <div class="hours-content">
+          <div class="hours-card">
+            <ul>
+              <li><span class="day">MA-TI</span><span>10:30-15:00</span></li>
+              <li><span class="day">KE-PE</span><span>10:30-20:00</span></li>
+              <li><span class="day">LA-SU</span><span>11:30-20:00</span></li>
+            </ul>
+            <div class="lunch-hours">
+              <h2 data-translate="lunchHours">Lounasajat</h2>
+              <p data-translate="lunchFull">
+                Lounas on arkisin 10:30-15:00 ja viikonloppuisin 11:30-16:00.
+              </p>
             </div>
+          </div>
         </div>
+      </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Yi Sushi</p>
-        </div>
+    <footer class="footer">
+      <p>© 2026 Yi Sushi. Heimolinnankatu 6, 32200 Loimaa, Finland.</p>
     </footer>
 
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>

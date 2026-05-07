@@ -1,56 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Menu - Yi Sushi</title>
-    <meta name="description" content="Selaa Yi Sushin menua. Tarjoamme laajan valikoiman sushia ja kiinalaisia ruokia.">
-    <meta property="og:title" content="Menu - Yi Sushi">
-    <meta property="og:description" content="Selaa Yi Sushin menua. Tarjoamme laajan valikoiman sushia ja kiinalaisia ruokia.">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a href="./index.html" class="logo">Yi Sushi</a>
-            <nav>
-                <ul>
-                    <li><a href="./index.html" data-translate="home">Etusivu</a></li>
-                    <li><a href="./about.html" data-translate="aboutUs">Meistä</a></li>
-                    <li><a href="./menu.html" class="active" data-translate="menu">Menu</a></li>
-                    <li><a href="./location.html" data-translate="location">Sijainti</a></li>
-                    <li><a href="./hours.html" data-translate="openingHours">Aukioloajat</a></li>
-                    <li><a href="./reservation.html" data-translate="reservation">Pöytävaraus</a></li>
-                    <li><a href="./contact.html" data-translate="contact">Yhteystiedot</a></li>
-                </ul>
-                <div class="lang-switcher">
-                    <a href="#" class="lang-active" data-lang="fi">FI</a> | <a href="#" data-lang="en">EN</a>
-                </div>
-            </nav>
-            <button class="mobile-nav-toggle" data-translate="mobileMenu">Valikko</button>
+    <meta
+      name="description"
+      content="Selaa Yi Sushin menua. Tarjoamme sushia ja kiinalaisia ruokia Loimaalla."
+    />
+    <meta property="og:title" content="Menu - Yi Sushi" />
+    <meta
+      property="og:description"
+      content="Selaa Yi Sushin menua ja hae annoksia ruokalistalta."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="./index.html">Yi Sushi</a>
+        <button class="mobile-nav-toggle" type="button" data-translate="mobileMenu">Valikko</button>
+        <div class="nav-links">
+          <a href="./index.html" data-translate="home">Etusivu</a>
+          <a href="./about.html" data-translate="aboutUs">Meistä</a>
+          <a href="./menu.html" class="active" data-translate="menu">Menu</a>
+          <a href="./location.html" data-translate="location">Sijainti</a>
+          <a href="./hours.html" data-translate="openingHours">Aukioloajat</a>
+          <a href="./reservation.html" data-translate="reservation">Pöytävaraus</a>
+          <a href="./contact.html" data-translate="contact">Yhteystiedot</a>
         </div>
+        <div class="lang-switcher" aria-label="Language selection">
+          <a href="#" class="lang-active" data-lang="fi">FI</a>
+          <span>|</span>
+          <a href="#" data-lang="en">EN</a>
+        </div>
+      </nav>
     </header>
 
-    <main id="menu-page">
-        <div class="container">
-            <h1 data-translate="menu">Menu</h1>
-            <div class="menu-search">
-                <input type="text" id="menu-search-input" placeholder="Hae ruokalistalta...">
-            </div>
-            <div id="menu-container">
-                <!-- Menu content will be dynamically generated here -->
-            </div>
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Yi Sushi</p>
+        <h1 data-translate="menu">Menu</h1>
+      </section>
+
+      <section class="page-section">
+        <div class="menu-search">
+          <input
+            type="text"
+            id="menu-search-input"
+            placeholder="Hae ruokalistalta..."
+            data-translate-placeholder="menuSearch"
+          />
         </div>
+        <div id="menu-container"></div>
+      </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Yi Sushi</p>
-        </div>
+    <footer class="footer">
+      <p>© 2026 Yi Sushi. Heimolinnankatu 6, 32200 Loimaa, Finland.</p>
     </footer>
 
     <script src="./assets/js/menu-data.js"></script>
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>
