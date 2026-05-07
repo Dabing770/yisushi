@@ -733,15 +733,7 @@
                                              "name":  "Kivennäisvesi 0.5l"
                                          },
                                          {
-                                             "price":  "Yhteensä 0 €",
-                                             "description":  "Yhteensä",
-                                             "name":  "Et ole lisännyt vielä tuotteita ostoskoriisi!"
-                                         },
-                                         {
-                                             "price":  "0 €",
-                                             "description":  "",
-                                             "name":  "(sis. maksut ja verot)"
-                                         }
+
                                      ],
                            "name":  "Juomat"
                        }
