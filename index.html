@@ -17,174 +17,103 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <label class="theme-switch" aria-label="Vaihda tumma ja vaalea teema">
-      <div class="simple-text">Theme</div>
-      <input id="theme-toggle" type="checkbox" />
-      <div class="checkmark"></div>
-      <div class="torch">
-        <div class="head">
-          <div class="face top">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <div class="face left">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <div class="face right">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <div class="stick">
-          <div class="side side-left">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <div class="side side-right">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    </label>
-
     <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="./index.html">Yi Sushi</a>
         <div class="nav-links">
-          <a href="./index.html">Home</a>
-          <a href="./about.html">About</a>
-          <a href="./menu.html">Menu</a>
-          <a href="./location.html">Location</a>
-          <a href="./hours.html">Hours</a>
-          <a href="./reservation.html">Reservation</a>
-          <a href="./contact.html">Contact</a>
+          <a href="./index.html" data-translate="home">Etusivu</a>
+          <a href="./about.html" data-translate="aboutUs">Meistä</a>
+          <a href="./menu.html" data-translate="menu">Menu</a>
+          <a href="./location.html" data-translate="location">Sijainti</a>
+          <a href="./hours.html" data-translate="openingHours">Aukioloajat</a>
+          <a href="./reservation.html" data-translate="reservation">Pöytävaraus</a>
+          <a href="./contact.html" data-translate="contact">Yhteystiedot</a>
+        </div>
+        <div class="lang-switcher" aria-label="Language selection">
+          <a href="#" class="lang-active" data-lang="fi">FI</a>
+          <span>|</span>
+          <a href="#" data-lang="en">EN</a>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero home-hero">
         <div class="hero-copy">
-          <p class="eyebrow">Sushi ja kiinalainen ravintola</p>
+          <p class="eyebrow" data-translate="homeType">
+            Sushi ja kiinalainen ravintola
+          </p>
           <h1>Yi Sushi</h1>
-          <p class="lead">
-            Tuoretta sushia ja lämpimiä kiinalaisia annoksia Loimaan keskustassa.
-            Tervetuloa lounaalle, illalliselle tai tekemään pöytävaraus puhelimitse.
+          <p class="lead" data-translate="homeLead">
+            Tuoretta sushia ja lämpimiä kiinalaisia annoksia Loimaan
+            keskustassa. Tervetuloa lounaalle, illalliselle tai tekemään
+            pöytävaraus puhelimitse.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="tel:0449819446">Soita 0449819446</a>
-            <a class="button secondary" href="./menu.html">Katso menu</a>
+            <a
+              class="button primary"
+              href="tel:0449819446"
+              data-translate="callButton"
+            >
+              Soita 0449819446
+            </a>
+            <a
+              class="button secondary"
+              href="./menu.html"
+              data-translate="viewMenu"
+            >
+              Katso menu
+            </a>
           </div>
         </div>
-
-        <div class="device-visual" aria-label="Ravintolan menu">
-          <div class="device">
-            <div class="device-topbar">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="screen">
-              <div class="screen-header"></div>
-              <div class="screen-grid">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="screen-panel"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section split" id="restaurant">
-        <div>
-          <p class="eyebrow">Loimaa</p>
-          <h2>Lähellä, selkeästi ja tuoreena.</h2>
-        </div>
-        <p>
-          Yi Sushi yhdistää sushin ja kiinalaisen keittiön rennoksi paikalliseksi
-          ravintolaksi. Meille voi tulla nopeasti lounaalle, rauhallisesti
-          illalliselle tai noutamaan omat suosikit mukaan.
-        </p>
       </section>
 
       <section class="feature-grid" aria-label="Ravintolan tiedot">
         <article>
-          <span class="feature-number">Address</span>
+          <span class="feature-number" data-translate="address">Osoite</span>
           <h3>Heimolinnankatu 6</h3>
           <p>32200 Loimaa, Finland</p>
         </article>
         <article>
-          <span class="feature-number">Opening Hours</span>
+          <span class="feature-number" data-translate="openingHours">
+            Aukioloajat
+          </span>
           <h3>MA-TI 10:30-15:00</h3>
           <p>KE-PE 10:30-20:00<br />LA-SU 11:30-20:00</p>
         </article>
         <article>
-          <span class="feature-number">Reservation</span>
-          <h3>Puhelimitse</h3>
-          <p>Varaa pöytä soittamalla numeroon 0449819446.</p>
+          <span class="feature-number" data-translate="reservation">
+            Pöytävaraus
+          </span>
+          <h3 data-translate="byPhone">Puhelimitse</h3>
+          <p data-translate="reservationPhone">
+            Varaa pöytä soittamalla numeroon 0449819446.
+          </p>
         </article>
       </section>
 
-      <section class="showcase" id="menu-preview">
-        <div class="showcase-copy">
-          <p class="eyebrow">Menu</p>
-          <h2>Sushi, lämpimät annokset ja lounas.</h2>
-          <p>
-            Menu-sivulla voit selata annoksia kategorioittain ja hakea ruokia
-            nimen perusteella. Menu säilyy omassa rakenteisessa datatiedostossa.
-          </p>
-          <a class="button primary" href="./menu.html">Avaa menu</a>
+      <section class="section split" id="menu-preview">
+        <div>
+          <p class="eyebrow" data-translate="menu">Menu</p>
+          <h2 data-translate="menuHeading">
+            Sushi, lämpimät annokset ja lounas.
+          </h2>
         </div>
-        <div class="showcase-strip">
-          <div class="tile wide"></div>
-          <div class="tile"></div>
-          <div class="tile dark"></div>
+        <div>
+          <p data-translate="menuIntro">
+            Menu-sivulla voit selata annoksia kategorioittain ja hakea ruokia
+            nimen perusteella.
+          </p>
+          <a class="button primary" href="./menu.html" data-translate="openMenu">
+            Avaa menu
+          </a>
         </div>
       </section>
 
       <section class="contact" id="contact">
-        <p class="eyebrow">Contact</p>
-        <h2>Tervetuloa Yi Sushiin.</h2>
-        <p>
+        <p class="eyebrow" data-translate="contact">Yhteystiedot</p>
+        <h2 data-translate="welcomeHeading">Tervetuloa Yi Sushiin.</h2>
+        <p data-translate="lunchSummary">
           Lounas arkisin 10:30-15:00 ja viikonloppuisin 11:30-16:00.
         </p>
         <a class="button primary" href="tel:0449819446">0449819446</a>
@@ -194,5 +123,7 @@
     <footer class="footer">
       <p>© 2026 Yi Sushi. Heimolinnankatu 6, 32200 Loimaa, Finland.</p>
     </footer>
+
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langSwitcher) {
         langSwitcher.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
+                e.preventDefault();
                 const lang = e.target.dataset.lang;
                 if (lang) {
                     setLanguage(lang);
@@ -93,11 +94,23 @@ function renderMenu(categories) {
 
 const translations = {
     en: {
+        home: 'Home',
+        mobileMenu: 'Menu',
         makeReservation: 'Make a Reservation',
+        callButton: 'Call 0449819446',
         viewMenu: 'View Menu',
         address: 'Address',
         openingHours: 'Opening Hours',
         aboutUs: 'About Us',
+        homeType: 'Sushi and Chinese restaurant',
+        homeLead: 'Fresh sushi and warm Chinese dishes in the centre of Loimaa. Welcome for lunch, dinner or a table reservation by phone.',
+        byPhone: 'By phone',
+        reservationPhone: 'Reserve a table by calling 0449819446.',
+        menuHeading: 'Sushi, warm dishes and lunch.',
+        menuIntro: 'On the menu page you can browse dishes by category and search by dish name.',
+        openMenu: 'Open menu',
+        welcomeHeading: 'Welcome to Yi Sushi.',
+        lunchSummary: 'Lunch on weekdays 10:30-15:00 and weekends 11:30-16:00.',
         aboutText1: 'Yi Sushi is a family-owned restaurant in the heart of Loimaa. We proudly offer a combination of authentic Chinese flavors and fresh, high-quality sushi. It is important to us to use the best ingredients and prepare each dish with care and love.',
         aboutText2: 'Whether it’s lunch, dinner, or a takeaway meal, our goal is always to provide warm service and a delicious taste experience. We believe that good food brings people together, and we want to be a place where locals can gather to enjoy good company and an excellent meal. Welcome!',
         menu: 'Menu',
@@ -109,11 +122,23 @@ const translations = {
         phone: 'Phone',
     },
     fi: {
+        home: 'Etusivu',
+        mobileMenu: 'Valikko',
         makeReservation: 'Tee pöytävaraus',
+        callButton: 'Soita 0449819446',
         viewMenu: 'Katso menu',
         address: 'Osoite',
         openingHours: 'Aukioloajat',
         aboutUs: 'Meistä',
+        homeType: 'Sushi ja kiinalainen ravintola',
+        homeLead: 'Tuoretta sushia ja lämpimiä kiinalaisia annoksia Loimaan keskustassa. Tervetuloa lounaalle, illalliselle tai tekemään pöytävaraus puhelimitse.',
+        byPhone: 'Puhelimitse',
+        reservationPhone: 'Varaa pöytä soittamalla numeroon 0449819446.',
+        menuHeading: 'Sushi, lämpimät annokset ja lounas.',
+        menuIntro: 'Menu-sivulla voit selata annoksia kategorioittain ja hakea ruokia nimen perusteella.',
+        openMenu: 'Avaa menu',
+        welcomeHeading: 'Tervetuloa Yi Sushiin.',
+        lunchSummary: 'Lounas arkisin 10:30-15:00 ja viikonloppuisin 11:30-16:00.',
         aboutText1: 'Yi Sushi on perheomisteinen ravintola Loimaan sydämessä. Tarjoamme ylpeänä yhdistelmän aitoja kiinalaisia makuja ja tuoretta, laadukasta sushia. Meille on tärkeää käyttää parhaita raaka-aineita ja valmistaa jokainen annos huolella ja rakkaudella.',
         aboutText2: 'Olipa kyseessä lounas, illallinen tai noutoateria, tavoitteemme on aina tarjota lämmin palvelu ja herkullinen makuelämys. Uskomme, että hyvä ruoka yhdistää ihmisiä, ja haluamme olla paikka, jossa paikalliset voivat kokoontua nauttimaan hyvästä seurasta ja erinomaisesta ateriasta. Tervetuloa tutustumaan!',
         menu: 'Menu',

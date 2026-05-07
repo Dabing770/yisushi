@@ -61,6 +61,7 @@ body:has(#theme-toggle:checked) .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 22px;
   width: min(1120px, calc(100% - 40px));
   height: 52px;
   margin: 0 auto;
@@ -74,6 +75,7 @@ body:has(#theme-toggle:checked) .site-header {
 .nav-links {
   display: flex;
   gap: 28px;
+  margin-left: auto;
   color: rgba(29, 29, 31, 0.74);
   font-size: 14px;
 }
@@ -87,6 +89,31 @@ body:has(#theme-toggle:checked) .nav-links {
 }
 
 .nav-links a:hover {
+  color: var(--ink);
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lang-switcher a {
+  min-width: 28px;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  text-align: center;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.lang-switcher a:hover,
+.lang-switcher .lang-active {
+  border-color: var(--line);
+  background: var(--surface);
   color: var(--ink);
 }
 
@@ -107,6 +134,23 @@ main {
 
 .hero-copy {
   max-width: 560px;
+}
+
+.home-hero {
+  grid-template-columns: minmax(0, 680px);
+  justify-content: center;
+  min-height: auto;
+  padding: 110px 0 74px;
+  text-align: center;
+}
+
+.home-hero .hero-copy,
+.home-hero .lead {
+  max-width: 680px;
+}
+
+.home-hero .hero-actions {
+  justify-content: center;
 }
 
 .eyebrow {
@@ -312,6 +356,10 @@ body:has(#theme-toggle:checked) .screen-panel {
 .split p:last-child {
   color: var(--muted);
   font-size: 23px;
+}
+
+.split .button {
+  margin-top: 8px;
 }
 
 .feature-grid {
@@ -706,8 +754,13 @@ body:has(#theme-toggle:checked) .tile.dark {
   }
 
   .nav-links {
+    display: none;
     gap: 16px;
     font-size: 13px;
+  }
+
+  .lang-switcher {
+    margin-left: auto;
   }
 
   .hero,
@@ -721,6 +774,10 @@ body:has(#theme-toggle:checked) .tile.dark {
     width: min(100% - 28px, 1120px);
     min-height: auto;
     padding-top: 54px;
+  }
+
+  .home-hero {
+    padding-top: 78px;
   }
 
   .device-visual {
@@ -757,6 +814,10 @@ body:has(#theme-toggle:checked) .tile.dark {
 @media (max-width: 560px) {
   .nav-links {
     display: none;
+  }
+
+  .nav {
+    gap: 12px;
   }
 
   .lead {
