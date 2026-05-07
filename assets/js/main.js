@@ -142,7 +142,7 @@ const translations = {
         menuIntro: 'Menu-sivulla voit selata annoksia kategorioittain ja hakea ruokia nimen perusteella.',
         openMenu: 'Avaa menu',
         welcomeHeading: 'Tervetuloa Yi Sushiin.',
-        lunchSummary: 'Lounas arkisin 10:30-15:00 ja viikonloppuisin 11:30-16:00.',
+        lunchSummary: 'Lounas arkisin 10:30-19:00 ja viikonloppuisin 11:30-19:00.',
         aboutText1: 'Yi Sushi on perheomisteinen ravintola Loimaan sydämessä. Tarjoamme ylpeänä yhdistelmän aitoja kiinalaisia makuja ja tuoretta, laadukasta sushia. Meille on tärkeää käyttää parhaita raaka-aineita ja valmistaa jokainen annos huolella ja rakkaudella.',
         aboutText2: 'Olipa kyseessä lounas, illallinen tai noutoateria, tavoitteemme on aina tarjota lämmin palvelu ja herkullinen makuelämys. Uskomme, että hyvä ruoka yhdistää ihmisiä, ja haluamme olla paikka, jossa paikalliset voivat kokoontua nauttimaan hyvästä seurasta ja erinomaisesta ateriasta. Tervetuloa tutustumaan!',
         menu: 'Menu',
