@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://<your-github-username>.github.io/<your-repo-name>/index.html</loc>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://<your-github-username>.github.io/<your-repo-name>/about.html</loc>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://<your-github-username>.github.io/<your-repo-name>/menu.html</loc>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://<your-github-username>.github.io/<your-repo-name>/location.html</loc>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://<your-github-username>.github.io/<your-repo-name>/hours.html</loc>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://<your-github-username>.github.io/<your-repo-name>/reservation.html</loc>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://<your-github-username>.github.io/<your-repo-name>/contact.html</loc>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+</urlset>

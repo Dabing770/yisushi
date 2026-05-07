@@ -1,0 +1,149 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Mobile navigation toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const nav = document.querySelector('nav');
+
+    if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+
+    // Language switcher
+    const langSwitcher = document.querySelector('.lang-switcher');
+    if (langSwitcher) {
+        langSwitcher.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                const lang = e.target.dataset.lang;
+                if (lang) {
+                    setLanguage(lang);
+                }
+            }
+        });
+    }
+    
+    // Set initial language
+    const savedLang = localStorage.getItem('lang') || (navigator.language.startsWith('fi') ? 'fi' : 'en');
+    setLanguage(savedLang);
+
+
+    // Menu rendering
+    if (document.getElementById('menu-container')) {
+        renderMenu(menuData.categories);
+    }
+
+    // Menu search
+    const searchInput = document.getElementById('menu-search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredCategories = menuData.categories.map(category => {
+                const filteredItems = category.items.filter(item => item.name.toLowerCase().includes(searchTerm));
+                return { ...category, items: filteredItems };
+            }).filter(category => category.items.length > 0);
+            renderMenu(filteredCategories);
+        });
+    }
+
+});
+
+function renderMenu(categories) {
+    const menuContainer = document.getElementById('menu-container');
+    menuContainer.innerHTML = '';
+    categories.forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('menu-category');
+        
+        const categoryTitle = document.createElement('h2');
+        categoryTitle.textContent = category.name;
+        categoryDiv.appendChild(categoryTitle);
+
+        category.items.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('menu-item');
+
+            const itemHeader = document.createElement('div');
+            itemHeader.classList.add('menu-item-header');
+
+            const itemName = document.createElement('span');
+            itemName.classList.add('menu-item-name');
+            itemName.textContent = item.name;
+            itemHeader.appendChild(itemName);
+
+            const itemPrice = document.createElement('span');
+            itemPrice.classList.add('menu-item-price');
+            itemPrice.textContent = item.price;
+            itemHeader.appendChild(itemPrice);
+            
+            itemDiv.appendChild(itemHeader);
+
+            if (item.description) {
+                const itemDescription = document.createElement('p');
+                itemDescription.classList.add('menu-item-description');
+                itemDescription.textContent = item.description;
+                itemDiv.appendChild(itemDescription);
+            }
+
+            categoryDiv.appendChild(itemDiv);
+        });
+        menuContainer.appendChild(categoryDiv);
+    });
+}
+
+const translations = {
+    en: {
+        makeReservation: 'Make a Reservation',
+        viewMenu: 'View Menu',
+        address: 'Address',
+        openingHours: 'Opening Hours',
+        aboutUs: 'About Us',
+        aboutText1: 'Yi Sushi is a family-owned restaurant in the heart of Loimaa. We proudly offer a combination of authentic Chinese flavors and fresh, high-quality sushi. It is important to us to use the best ingredients and prepare each dish with care and love.',
+        aboutText2: 'Whether it’s lunch, dinner, or a takeaway meal, our goal is always to provide warm service and a delicious taste experience. We believe that good food brings people together, and we want to be a place where locals can gather to enjoy good company and an excellent meal. Welcome!',
+        menu: 'Menu',
+        location: 'Location',
+        lunchHours: 'Lunch Hours',
+        reservation: 'Reservation',
+        reservationInfo: 'Please make a reservation by phone:',
+        contact: 'Contact Us',
+        phone: 'Phone',
+    },
+    fi: {
+        makeReservation: 'Tee pöytävaraus',
+        viewMenu: 'Katso menu',
+        address: 'Osoite',
+        openingHours: 'Aukioloajat',
+        aboutUs: 'Meistä',
+        aboutText1: 'Yi Sushi on perheomisteinen ravintola Loimaan sydämessä. Tarjoamme ylpeänä yhdistelmän aitoja kiinalaisia makuja ja tuoretta, laadukasta sushia. Meille on tärkeää käyttää parhaita raaka-aineita ja valmistaa jokainen annos huolella ja rakkaudella.',
+        aboutText2: 'Olipa kyseessä lounas, illallinen tai noutoateria, tavoitteemme on aina tarjota lämmin palvelu ja herkullinen makuelämys. Uskomme, että hyvä ruoka yhdistää ihmisiä, ja haluamme olla paikka, jossa paikalliset voivat kokoontua nauttimaan hyvästä seurasta ja erinomaisesta ateriasta. Tervetuloa tutustumaan!',
+        menu: 'Menu',
+        location: 'Sijainti',
+        lunchHours: 'Lounasajat',
+        reservation: 'Pöytävaraus',
+        reservationInfo: 'Teethän pöytävarauksen puhelimitse numeroon:',
+        contact: 'Ota yhteyttä',
+        phone: 'Puhelin',
+    }
+};
+
+function setLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    
+    // Update UI text
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.dataset.translate;
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    // Update active language link
+    document.querySelectorAll('.lang-switcher a').forEach(a => {
+        if (a.dataset.lang === lang) {
+            a.classList.add('lang-active');
+        } else {
+            a.classList.remove('lang-active');
+        }
+    });
+}

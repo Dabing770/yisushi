@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Yi Sushi</title>
+    <meta name="description" content="Selaa Yi Sushin menua. Tarjoamme laajan valikoiman sushia ja kiinalaisia ruokia.">
+    <meta property="og:title" content="Menu - Yi Sushi">
+    <meta property="og:description" content="Selaa Yi Sushin menua. Tarjoamme laajan valikoiman sushia ja kiinalaisia ruokia.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="./index.html" class="logo">Yi Sushi</a>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./menu.html" class="active">Menu</a></li>
+                    <li><a href="./location.html">Location</a></li>
+                    <li><a href="./hours.html">Opening Hours</a></li>
+                    <li><a href="./reservation.html">Reservation</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="#" class="lang-active" data-lang="fi">FI</a> | <a href="#" data-lang="en">EN</a>
+                </div>
+            </nav>
+            <button class="mobile-nav-toggle">Menu</button>
+        </div>
+    </header>
+
+    <main id="menu-page">
+        <div class="container">
+            <h1 data-translate="menu">Menu</h1>
+            <div class="menu-search">
+                <input type="text" id="menu-search-input" placeholder="Hae ruokalistalta...">
+            </div>
+            <div id="menu-container">
+                <!-- Menu content will be dynamically generated here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yi Sushi</p>
+        </div>
+    </footer>
+
+    <script src="./assets/js/menu-data.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

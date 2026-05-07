@@ -1,0 +1,89 @@
+你是资深前端工程师 + UI 设计师。请为餐厅生成一个“简单但专业”的 GitHub Pages 静态网站项目（纯 HTML/CSS/JS，不要 React/Vue，不要构建工具，不要后端）。
+
+# 1) 餐厅信息（必须按此生成）
+- 餐厅名称：Yi Sushi
+- 餐厅类型：sushi ja kiinalainenravintola
+- 地址：Heimolinnankatu 6, 32200 Loimaa, Finland
+- 电话/订位：0449819446
+- 订位说明：Puhelimitse 0449819446
+- 主要受众：当地顾客
+- 网站语言：Suomi + English（必须提供语言切换；默认 Suomi；可根据浏览器语言自动选择但用户可手动切换并记住选择）
+
+# 2) 页面结构（必须多页面）
+必须包含这些页面，并且导航栏在所有页面一致：
+1) Home（首页：餐厅名、类型、电话一键拨号按钮、地址、营业时间摘要、菜单入口）
+2) About（关于我们：简短、真实，不夸大；强调新鲜食材、温暖服务、寿司+中餐）
+3) Menu（菜单：最重要）
+4) Location（地址 ）
+5) Opening Hours（营业时间：完整展示）
+6) Reservation（订位说明：电话订位）
+7) Contact（电话、地址、营业时间摘要、社媒占位如无则不显示）
+
+营业时间（原样展示）：
+- MA–TI 10:30–15:00
+- KE–PE 10:30–20:00
+- LA–SU 11:30–20:00
+- Lounas on arkisin 10:30–15:00 ja viikonloppuisin 11:30–16:00
+
+# 3) 视觉与风格（必须）
+- 风格：现代简约
+- 配色：红 / 白 / 黑（干净克制，少量红色高亮）
+- 参考氛围：Hoyoverse（仅参考质感、排版、动效克制；禁止复制任何布局/素材/商标/字体）
+- 不需要 Hero 标语（首页不要大段标语，但要清晰标题与行动按钮）
+
+# 4) 功能要求（必须实现）
+A) 响应式：移动端优先 + 桌面端适配
+B) 导航：移动端折叠菜单（少 JS）
+C) Menu 菜单页：
+   - 从“结构化数据”渲染（不要把菜单硬写在 HTML）
+   - 分类展示（例如：Alkuruoka / Lämmin ruoka / Sushi 等；以菜单文本中的分类为准）
+   - 支持搜索：按菜名关键字过滤（实时）
+   - 每条菜显示：名称 + 价格；如有描述则显示描述（无描述就不显示描述区域）
+D) 语言切换：
+   - UI 文案双语（导航、按钮、标题、提示语、搜索框 placeholder 等）
+   - 菜单内容保持原文（芬兰语为主），允许给“分类名”加英文小字（可选）
+E) SEO 基础：
+   - 每页独立 title/description
+   - OpenGraph 基础字段
+   - robots.txt + sitemap.xml（静态版本即可）
+F) 性能：
+   - 不使用外部大库
+   - 使用系统字体
+   - JS 仅用于：语言切换、菜单搜索、移动端导航开关
+G) 无食物照片（如无图片资源则用简洁布局，不要强行塞图）
+
+# 5) GitHub Pages 兼容性（必须严格满足）
+- 所有资源路径使用相对路径（例如 ./assets/css/style.css），禁止以 / 开头
+- 页面跳转使用相对链接（例如 ./menu.html）
+- 不依赖服务器端能力
+- 代码可直接放进仓库根目录并在 Pages 中发布
+
+# 6) 项目结构（必须输出）
+请输出完整文件树 + 每个文件的完整代码（可直接复制到 GitHub 仓库）：
+- /index.html
+- /about.html
+- /menu.html
+- /location.html
+- /hours.html
+- /reservation.html
+- /contact.html
+- /assets/css/style.css
+- /assets/js/main.js
+- /assets/js/menu-data.js   （菜单结构化数据放这里：JSON/JS 数组）
+- /robots.txt
+- /sitemap.xml
+
+# 7) 菜单解析（必须）
+你将收到“菜单原始文本”。请你：
+1) 识别所有分类（分类标题）
+2) 解析每个条目：菜名、价格（如 5,50 €）、描述（若存在）
+3) 生成结构化数据写入 /assets/js/menu-data.js（建议结构：categories -> items）
+4) menu.html 通过 JS 从 menu-data.js 渲染到页面
+5) 过滤掉无意义行（例如单独的 0、空行、类似“%s. suosituin”等噪声标记）
+
+# 8) 输出格式要求（必须）
+- 先给“项目文件树”
+- 再按文件逐个输出完整代码（用清晰分隔标题）
+- 不要输出无关解释
+
+菜单在文件 new_menu 

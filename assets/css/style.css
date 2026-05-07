@@ -1,0 +1,310 @@
+:root {
+    --primary-color: #D32F2F; /* Red */
+    --secondary-color: #FFFFFF; /* White */
+    --dark-color: #212121; /* Nearly black */
+    --text-color: #424242;
+    --light-gray-color: #F5F5F5;
+    --system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* General Body Styles */
+body {
+    font-family: var(--system-font);
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a.active, nav a:hover {
+    color: var(--primary-color);
+}
+
+.lang-switcher a {
+    margin-left: 5px;
+    font-size: 0.9rem;
+}
+
+.lang-switcher .lang-active {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Mobile Nav */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--dark-color);
+    color: var(--dark-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--secondary-color);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav li {
+        margin: 0;
+        text-align: center;
+    }
+
+    nav li a {
+        display: block;
+        padding: 1rem;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+}
+
+
+/* Main Content */
+main {
+    padding: 4rem 0;
+}
+
+h1, h2, h3 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* Home Page */
+#home .restaurant-name {
+    font-size: 3rem;
+    color: var(--dark-color);
+}
+
+#home .restaurant-type {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#home .cta-buttons {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin: 0 0.5rem;
+}
+
+.button:hover {
+    background-color: #A32424; /* Darker red */
+}
+
+.button-secondary {
+    background-color: var(--dark-color);
+}
+.button-secondary:hover {
+    background-color: #424242;
+}
+
+#home .info-section {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+/* About Page */
+#about .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Menu Page */
+#menu-search {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#menu-search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.menu-category {
+    margin-bottom: 3rem;
+}
+
+.menu-category h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.menu-item {
+    margin-bottom: 1.5rem;
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.menu-item-name {
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.menu-item-price {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.menu-item-description {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Location Page */
+#location-page .location-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+#location-page .address, #location-page .map {
+    flex: 1;
+    min-width: 300px;
+}
+#location-page .map iframe {
+    width: 100%;
+    height: 450px;
+}
+
+/* Hours Page */
+#hours-page .hours-content ul {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
+}
+#hours-page .hours-content li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+#hours-page .hours-content .day {
+    font-weight: bold;
+}
+#hours-page .lunch-hours {
+    text-align: center;
+    margin-top: 2rem;
+    background-color: var(--light-gray-color);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* Reservation & Contact Page */
+#reservation-page .reservation-content,
+#contact-page .contact-info {
+    text-align: center;
+}
+.phone-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: block;
+    margin-top: 1rem;
+}
+#contact-page .info-item {
+    margin-bottom: 2rem;
+}
+
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
