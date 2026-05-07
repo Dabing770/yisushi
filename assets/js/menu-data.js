@@ -731,11 +731,11 @@
                                              "price":  "3,50 €",
                                              "description":  "virkistävä ja kupliva juoma, joka sammuttaa janoasi",
                                              "name":  "Kivennäisvesi 0.5l"
-                                         },
-                                         {
-
+                                         }
                                      ],
                            "name":  "Juomat"
                        }
                    ]
 };
+
+window.menuData = menuData;

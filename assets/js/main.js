@@ -31,16 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Menu rendering
-    if (document.getElementById('menu-container')) {
-        renderMenu(menuData.categories);
+    const menuContainer = document.getElementById('menu-container');
+    const menuSource = window.menuData;
+    if (menuContainer) {
+        if (menuSource && Array.isArray(menuSource.categories)) {
+            renderMenu(menuSource.categories);
+        } else {
+            menuContainer.innerHTML = '<p class="menu-empty">Menu data could not be loaded.</p>';
+        }
     }
 
     // Menu search
     const searchInput = document.getElementById('menu-search-input');
-    if (searchInput) {
+    if (searchInput && menuSource && Array.isArray(menuSource.categories)) {
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            const filteredCategories = menuData.categories.map(category => {
+            const filteredCategories = menuSource.categories.map(category => {
                 const filteredItems = category.items.filter(item => item.name.toLowerCase().includes(searchTerm));
                 return { ...category, items: filteredItems };
             }).filter(category => category.items.length > 0);
