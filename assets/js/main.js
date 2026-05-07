@@ -112,7 +112,7 @@ const translations = {
         menuIntro: 'On the menu page you can browse dishes by category and search by dish name.',
         openMenu: 'Open menu',
         welcomeHeading: 'Welcome to Yi Sushi.',
-        lunchSummary: 'Lunch on weekdays 10:30-19:00 and weekends 11:30-19:00.',
+        lunchSummary: 'Mon-Fri 10:00-20:00, lunch 10:30-19:00. Sat-Sun 11:30-20:00, lunch 11:30-19:00.',
         aboutText1: 'Yi Sushi is a family-owned restaurant in the heart of Loimaa. We proudly offer a combination of authentic Chinese flavors and fresh, high-quality sushi. It is important to us to use the best ingredients and prepare each dish with care and love.',
         aboutText2: 'Whether it’s lunch, dinner, or a takeaway meal, our goal is always to provide warm service and a delicious taste experience. We believe that good food brings people together, and we want to be a place where locals can gather to enjoy good company and an excellent meal. Welcome!',
         menu: 'Menu',
@@ -122,7 +122,7 @@ const translations = {
         reservationInfo: 'Please make a reservation by phone:',
         contact: 'Contact',
         phone: 'Phone',
-        lunchFull: 'Lunch on weekdays 10:30-15:00 and weekends 11:30-19:00.',
+        lunchFull: 'Mon-Fri 10:00-20:00, lunch 10:30-19:00. Sat-Sun 11:30-20:00, lunch 11:30-19:00.',
     },
     fi: {
         home: 'Etusivu',
@@ -142,7 +142,7 @@ const translations = {
         menuIntro: 'Menu-sivulla voit selata annoksia kategorioittain ja hakea ruokia nimen perusteella.',
         openMenu: 'Avaa menu',
         welcomeHeading: 'Tervetuloa Yi Sushiin.',
-        lunchSummary: 'Lounas arkisin 10:30-19:00 ja viikonloppuisin 11:30-19:00.',
+        lunchSummary: 'MA-PE 10:00-20:00, lounas 10:30-19:00. LA-SU 11:30-20:00, lounas 11:30-19:00.',
         aboutText1: 'Yi Sushi on perheomisteinen ravintola Loimaan sydämessä. Tarjoamme ylpeänä yhdistelmän aitoja kiinalaisia makuja ja tuoretta, laadukasta sushia. Meille on tärkeää käyttää parhaita raaka-aineita ja valmistaa jokainen annos huolella ja rakkaudella.',
         aboutText2: 'Olipa kyseessä lounas, illallinen tai noutoateria, tavoitteemme on aina tarjota lämmin palvelu ja herkullinen makuelämys. Uskomme, että hyvä ruoka yhdistää ihmisiä, ja haluamme olla paikka, jossa paikalliset voivat kokoontua nauttimaan hyvästä seurasta ja erinomaisesta ateriasta. Tervetuloa tutustumaan!',
         menu: 'Menu',
@@ -152,7 +152,7 @@ const translations = {
         reservationInfo: 'Teethän pöytävarauksen puhelimitse numeroon:',
         contact: 'Yhteystiedot',
         phone: 'Puhelin',
-        lunchFull: 'Lounas on arkisin 10:30-19:00 ja viikonloppuisin 11:30-19:00.',
+        lunchFull: 'MA-PE 10:00-20:00, lounas 10:30-19:00. LA-SU 11:30-20:00, lounas 11:30-19:00.',
     }
 };
 
