@@ -152,7 +152,7 @@ const translations = {
         reservationInfo: 'Teethän pöytävarauksen puhelimitse numeroon:',
         contact: 'Yhteystiedot',
         phone: 'Puhelin',
-        lunchFull: 'Lounas on arkisin 10:30-15:00 ja viikonloppuisin 11:30-16:00.',
+        lunchFull: 'Lounas on arkisin 10:30-19:00 ja viikonloppuisin 11:30-19:00.',
     }
 };
 
