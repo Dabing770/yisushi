@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initPageTransitions();
     initIntro();
+    initInteractiveBackground();
 
     // Mobile navigation toggle
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuSource = window.menuData;
     if (menuContainer) {
         if (menuSource && Array.isArray(menuSource.categories)) {
-            renderMenu(menuSource.categories);
+            renderMenu(menuSource.categories, getCurrentLanguage());
         } else {
             menuContainer.innerHTML = '<p class="menu-empty">Menu data could not be loaded.</p>';
         }
@@ -48,15 +49,54 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchInput && menuSource && Array.isArray(menuSource.categories)) {
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
+            const lang = getCurrentLanguage();
             const filteredCategories = menuSource.categories.map(category => {
-                const filteredItems = category.items.filter(item => item.name.toLowerCase().includes(searchTerm));
+                const filteredItems = category.items.filter(item => {
+                    const displayName = getMenuItemName(item, lang).toLowerCase();
+                    const displayDescription = getMenuItemDescription(item, lang).toLowerCase();
+                    return displayName.includes(searchTerm) || displayDescription.includes(searchTerm);
+                });
                 return { ...category, items: filteredItems };
             }).filter(category => category.items.length > 0);
-            renderMenu(filteredCategories);
+            renderMenu(filteredCategories, lang);
         });
     }
 
 });
+
+function initInteractiveBackground() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+        return;
+    }
+
+    let rafId = null;
+    let targetX = 0;
+    let targetY = 0;
+
+    const updateBackground = () => {
+        document.documentElement.style.setProperty('--bg-shift-x', targetX.toFixed(2));
+        document.documentElement.style.setProperty('--bg-shift-y', targetY.toFixed(2));
+        rafId = null;
+    };
+
+    const handlePointerMove = (event) => {
+        const point = event.touches ? event.touches[0] : event;
+        if (!point) {
+            return;
+        }
+
+        targetX = (point.clientX / window.innerWidth - 0.5) * 80;
+        targetY = (point.clientY / window.innerHeight - 0.5) * 80;
+
+        if (!rafId) {
+            rafId = window.requestAnimationFrame(updateBackground);
+        }
+    };
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    window.addEventListener('touchmove', handlePointerMove, { passive: true });
+}
 
 function initPageTransitions() {
     const transitionMs = 260;
@@ -132,7 +172,35 @@ function initIntro() {
     }, removeDelay);
 }
 
-function renderMenu(categories) {
+function getCurrentLanguage() {
+    return localStorage.getItem('lang') || document.documentElement.lang || 'fi';
+}
+
+function rerenderMenu() {
+    const menuContainer = document.getElementById('menu-container');
+    const menuSource = window.menuData;
+    if (!menuContainer || !menuSource || !Array.isArray(menuSource.categories)) {
+        return;
+    }
+
+    const searchInput = document.getElementById('menu-search-input');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const lang = getCurrentLanguage();
+    const categories = searchTerm
+        ? menuSource.categories.map(category => {
+            const filteredItems = category.items.filter(item => {
+                const displayName = getMenuItemName(item, lang).toLowerCase();
+                const displayDescription = getMenuItemDescription(item, lang).toLowerCase();
+                return displayName.includes(searchTerm) || displayDescription.includes(searchTerm);
+            });
+            return { ...category, items: filteredItems };
+        }).filter(category => category.items.length > 0)
+        : menuSource.categories;
+
+    renderMenu(categories, lang);
+}
+
+function renderMenu(categories, lang = 'fi') {
     const menuContainer = document.getElementById('menu-container');
     menuContainer.innerHTML = '';
     categories.forEach(category => {
@@ -140,7 +208,7 @@ function renderMenu(categories) {
         categoryDiv.classList.add('menu-category');
         
         const categoryTitle = document.createElement('h2');
-        categoryTitle.textContent = category.name;
+        categoryTitle.textContent = getMenuCategoryName(category.name, lang);
         categoryDiv.appendChild(categoryTitle);
 
         category.items.forEach(item => {
@@ -152,7 +220,7 @@ function renderMenu(categories) {
 
             const itemName = document.createElement('span');
             itemName.classList.add('menu-item-name');
-            itemName.textContent = item.name;
+            itemName.textContent = getMenuItemName(item, lang);
             itemHeader.appendChild(itemName);
 
             const itemPrice = document.createElement('span');
@@ -162,10 +230,11 @@ function renderMenu(categories) {
             
             itemDiv.appendChild(itemHeader);
 
-            if (item.description) {
+            const description = getMenuItemDescription(item, lang);
+            if (description) {
                 const itemDescription = document.createElement('p');
                 itemDescription.classList.add('menu-item-description');
-                itemDescription.textContent = item.description;
+                itemDescription.textContent = description;
                 itemDiv.appendChild(itemDescription);
             }
 
@@ -173,6 +242,183 @@ function renderMenu(categories) {
         });
         menuContainer.appendChild(categoryDiv);
     });
+}
+
+const menuCategoryTranslations = {
+    'Tilatuimmat juuri nyt.': 'Most ordered right now',
+    'Alkuruoat ja keitot': 'Starters and soups',
+    'Sushi': 'Sushi',
+    'Kanaa': 'Chicken',
+    'Häränlihaa': 'Beef',
+    'Porsaanlihaa': 'Pork',
+    'Merenantimia': 'Seafood',
+    'Ankka': 'Duck',
+    'Tofu': 'Tofu',
+    'Muut': 'Other dishes',
+    'Kaksi pientä': 'Two small dishes',
+    'Kolme pientä': 'Three small dishes',
+    'Neljä pientä': 'Four small dishes',
+    'Lasten annokset': 'Kids meals',
+    'Juomat': 'Drinks'
+};
+
+const menuNameTranslations = {
+    'Hapan-chilikeitto': 'Hot and sour chili soup',
+    'Friteeratut sipulirenkaat 6kpl': 'Deep-fried onion rings, 6 pcs',
+    'Jättikatkarapusalaatti': 'King prawn salad',
+    'Vege Kevätrulla 6kpl': 'Vegetable spring rolls, 6 pcs',
+    'Peking-keitto': 'Peking soup',
+    'Kana-maissikeitto': 'Chicken and corn soup',
+    'Tomaatti-munakeitto': 'Tomato and egg soup',
+    'Kana-herkkusienikeitto': 'Chicken and mushroom soup',
+    'Wuntun keitto': 'Wonton soup',
+    'Kevätrulla 2kpl': 'Spring rolls, 2 pcs',
+    'Katkarapu-vihanneskeitto': 'Shrimp and vegetable soup',
+    'Äyriäiskeitto': 'Seafood soup',
+    'Raviolia 5kpl': 'Dumplings, 5 pcs',
+    'Kiinalainen sieni-kanakeitto': 'Chinese mushroom and chicken soup',
+    'Muna-vihanneskeitto': 'Egg and vegetable soup',
+    'Peking-kanaa': 'Peking chicken',
+    'Kanaa Kung Po': 'Kung Po chicken',
+    'Kanaa Sichuan': 'Sichuan chicken',
+    'VIisimausteista kanaa': 'Five-spice chicken',
+    'Peking-härkää': 'Peking beef',
+    'Härkää Kung Po': 'Kung Po beef',
+    'Härkää sataykastikkeessa': 'Beef in satay sauce',
+    'Härkää mustapapukastikkeessa': 'Beef in black bean sauce',
+    'Härkää ja Sichuan': 'Sichuan beef',
+    'Härkää ja ananasta': 'Beef with pineapple',
+    'Härkää Hoi-Sin-kastikkeessa': 'Beef in hoisin sauce',
+    'Porsasta Kung Po': 'Kung Po pork',
+    'Possua mustapapukastikkeessa': 'Pork in black bean sauce',
+    'Pekingin porsasta': 'Peking pork',
+    'Katkarapuja Sichuan': 'Sichuan shrimp',
+    'Jättikatkarapuja Peking': 'Peking king prawns',
+    'Peking-kalaa': 'Peking fish',
+    'Mustekalaa currykastikkeessa': 'Squid in curry sauce',
+    'Ma-Po tofua ja porsaanlihaa chilikastikkeessa': 'Ma Po tofu with pork in chili sauce',
+    'Kaksi pientä': 'Two small dishes',
+    'Kolme pientä': 'Three small dishes',
+    'Neljä pientä': 'Four small dishes',
+    'Nakit ja ranskalaiset': 'Sausages and fries',
+    'Kivennäisvesi 0.5l': 'Sparkling water 0.5l'
+};
+
+const menuTextReplacements = [
+    ['Friteerattua', 'Deep-fried'],
+    ['Friteeratut', 'Deep-fried'],
+    ['Paistettua', 'Fried'],
+    ['Paistettuja', 'Fried'],
+    ['Kanaa', 'Chicken'],
+    ['kana', 'chicken'],
+    ['kanaa', 'chicken'],
+    ['Häränlihaa', 'Beef'],
+    ['Häränliha', 'Beef'],
+    ['Häränlihaa', 'Beef'],
+    ['Härkää', 'Beef'],
+    ['härkää', 'beef'],
+    ['Porsaanlihaa', 'Pork'],
+    ['porsaanlihaa', 'pork'],
+    ['Porsasta', 'Pork'],
+    ['Possua', 'Pork'],
+    ['porsasta', 'pork'],
+    ['Katkarapuja', 'Shrimp'],
+    ['katkarapuja', 'shrimp'],
+    ['Jättikatkarapuja', 'King prawns'],
+    ['jättikatkarapuja', 'king prawns'],
+    ['Kalaa', 'Fish'],
+    ['kalaa', 'fish'],
+    ['Ankkaa', 'Duck'],
+    ['ankkaa', 'duck'],
+    ['Vihanneksia', 'Vegetables'],
+    ['vihanneksia', 'vegetables'],
+    ['Tofua', 'Tofu'],
+    ['tofua', 'tofu'],
+    ['riisiä', 'rice'],
+    ['Riisiä', 'Rice'],
+    ['vermiselliä', 'vermicelli'],
+    ['Vermiselliä', 'Vermicelli'],
+    ['kananmunaa', 'egg'],
+    ['munaa', 'egg'],
+    ['ananasta', 'pineapple'],
+    ['Ananasta', 'Pineapple'],
+    ['bambua', 'bamboo'],
+    ['herkkusieniä', 'mushrooms'],
+    ['kiinalaisia sieniä', 'Chinese mushrooms'],
+    ['sipulia', 'onion'],
+    ['cashew-pähkinöitä', 'cashew nuts'],
+    ['tomaattia', 'tomato'],
+    ['herneitä', 'peas'],
+    ['valkosipulikastikkeessa', 'in garlic sauce'],
+    ['chilikastikkeessa', 'in chili sauce'],
+    ['currykastikkeessa', 'in curry sauce'],
+    ['hapanimeläkastikkeessa', 'in sweet and sour sauce'],
+    ['sitruunakastikkeessa', 'in lemon sauce'],
+    ['osterikastikkeessa', 'in oyster sauce'],
+    ['mustapapukastikkeessa', 'in black bean sauce'],
+    ['Satay-kastikkeessa', 'in satay sauce'],
+    ['sataykastikkeessa', 'in satay sauce'],
+    ['Hoi Sin -kastikkeessa', 'in hoisin sauce'],
+    ['Hoi-Sin-kastikkeessa', 'in hoisin sauce'],
+    ['ja', 'and'],
+    ['sekä', 'and'],
+    ['Lohi', 'Salmon'],
+    ['lohi', 'salmon'],
+    ['grillattu', 'grilled'],
+    ['Grillattu', 'Grilled'],
+    ['kypsä', 'cooked'],
+    ['raaka', 'raw'],
+    ['katkarapu', 'shrimp'],
+    ['avokado', 'avocado'],
+    ['kurkku', 'cucumber'],
+    ['salaatti', 'salad',
+    ],
+    ['lumirapu', 'snow crab'],
+    ['tonnikala', 'tuna'],
+    ['ravunpyrstö', 'crayfish tail'],
+    ['friteerattu', 'deep-fried'],
+    ['Virvoitusjuoma', 'Soft drink'],
+    ['Sokeriton virvoitusjuoma', 'Sugar-free soft drink'],
+    ['virkistävä ja kupliva juoma, joka sammuttaa janoasi', 'Refreshing sparkling drink'],
+    ['kpl', 'pcs'],
+    ['Iso Annos', 'Large platter'],
+    ['Lasten annokset', 'Kids meals']
+];
+
+function getMenuCategoryName(name, lang) {
+    if (lang !== 'en') {
+        return name;
+    }
+    return menuCategoryTranslations[name] || translateMenuText(name);
+}
+
+function getMenuItemName(item, lang) {
+    if (lang !== 'en') {
+        return item.name;
+    }
+    return menuNameTranslations[item.name] || translateMenuText(item.name);
+}
+
+function getMenuItemDescription(item, lang) {
+    if (!item.description) {
+        return '';
+    }
+    if (lang !== 'en') {
+        return item.description;
+    }
+    return '';
+}
+
+function translateMenuText(text) {
+    let translated = text;
+    menuTextReplacements.forEach(([from, to]) => {
+        translated = translated.split(from).join(to);
+    });
+    return translated
+        .replace(/\s+,/g, ',')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/(\d+)x/g, '$1x ')
+        .trim();
 }
 
 const translations = {
@@ -271,4 +517,6 @@ function setLanguage(lang) {
             a.classList.remove('lang-active');
         }
     });
+
+    rerenderMenu();
 }

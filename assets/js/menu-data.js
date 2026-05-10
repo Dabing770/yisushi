@@ -1,4 +1,4 @@
-﻿const menuData = {
+window.menuData = {
     "categories":  [
                        {
                            "items":  [
@@ -737,5 +737,3 @@
                        }
                    ]
 };
-
-window.menuData = menuData;
