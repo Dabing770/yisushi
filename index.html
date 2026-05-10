@@ -16,7 +16,21 @@
     <meta property="og:type" content="website" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="has-intro">
+    <div class="intro" aria-label="Yi Sushi opening animation">
+      <div class="intro-name" aria-label="Yi Sushi">
+        <span>Y</span>
+        <span>i</span>
+        <span class="intro-gap" aria-hidden="true"></span>
+        <span>S</span>
+        <span>u</span>
+        <span>s</span>
+        <span>h</span>
+        <span>i</span>
+      </div>
+      <div class="intro-line" aria-hidden="true"></div>
+    </div>
+
     <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="./index.html">Yi Sushi</a>
@@ -79,10 +93,11 @@
           <span class="feature-number" data-translate="openingHours">
             Aukioloajat
           </span>
-          <h3>MA-PE 10:00-20:00</h3>
+          <h3><span data-translate="weekdayRange">MA-PE</span> 10:30-20:00</h3>
           <p>
-            Lounas 10:30-19:00<br />LA-SU 11:30-20:00<br />Lounas
-            11:30-19:00
+            <span data-translate="lunchLabel">Lounas</span> 10:30-19:00<br />
+            <span data-translate="weekendRange">LA-SU</span> 11:30-20:00<br />
+            <span data-translate="lunchLabel">Lounas</span> 11:30-19:00
           </p>
         </article>
         <article>
@@ -118,7 +133,7 @@
         <p class="eyebrow" data-translate="contact">Yhteystiedot</p>
         <h2 data-translate="welcomeHeading">Tervetuloa Yi Sushiin.</h2>
         <p data-translate="lunchSummary">
-          MA-PE 10:00-20:00, lounas 10:30-19:00. LA-SU 11:30-20:00,
+          MA-PE 10:30-20:00, lounas 10:30-19:00. LA-SU 11:30-20:00,
           lounas 11:30-19:00.
         </p>
         <a class="button primary" href="tel:0449819446">0449819446</a>
