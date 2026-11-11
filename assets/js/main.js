@@ -225,7 +225,7 @@ function renderMenu(categories, lang = 'fi') {
 
             const itemPrice = document.createElement('span');
             itemPrice.classList.add('menu-item-price');
-            itemPrice.textContent = item.price;
+            itemPrice.textContent = getMenuItemPrice(item, lang);
             itemHeader.appendChild(itemPrice);
             
             itemDiv.appendChild(itemHeader);
@@ -245,6 +245,7 @@ function renderMenu(categories, lang = 'fi') {
 }
 
 const menuCategoryTranslations = {
+    'Lounas': 'Lunch',
     'Tilatuimmat juuri nyt.': 'Most ordered right now',
     'Alkuruoat ja keitot': 'Starters and soups',
     'Sushi': 'Sushi',
@@ -263,6 +264,9 @@ const menuCategoryTranslations = {
 };
 
 const menuNameTranslations = {
+    'Aikuinen MA-PE': 'Adult MON-FRI',
+    'Aikuinen LA-SU': 'Adult SAT-SUN',
+    'Lapset 2-11 v': 'Children 2-11 years',
     'Hapan-chilikeitto': 'Hot and sour chili soup',
     'Friteeratut sipulirenkaat 6kpl': 'Deep-fried onion rings, 6 pcs',
     'Jättikatkarapusalaatti': 'King prawn salad',
@@ -399,6 +403,17 @@ function getMenuItemName(item, lang) {
     return menuNameTranslations[item.name] || translateMenuText(item.name);
 }
 
+const menuPriceTranslations = {
+    '1 €/ikävuosi': '1 € per year of age'
+};
+
+function getMenuItemPrice(item, lang) {
+    if (lang !== 'en') {
+        return item.price;
+    }
+    return menuPriceTranslations[item.price] || item.price;
+}
+
 function getMenuItemDescription(item, lang) {
     if (!item.description) {
         return '';
@@ -454,6 +469,11 @@ const translations = {
         contact: 'Contact',
         phone: 'Phone',
         lunchFull: 'MON-FRI 10:30-20:00, lunch 10:30-19:00. SAT-SUN 11:30-20:00, lunch 11:30-19:00.',
+        lunchPrices: 'Lunch Prices',
+        adultWeekday: 'Adult MON-FRI',
+        adultWeekend: 'Adult SAT-SUN',
+        childrenAge: 'Children 2-11 years',
+        perYearOfAge: '1 € per year of age',
     },
     fi: {
         home: 'Etusivu',
@@ -487,6 +507,11 @@ const translations = {
         contact: 'Yhteystiedot',
         phone: 'Puhelin',
         lunchFull: 'MA-PE 10:30-20:00, lounas 10:30-19:00. LA-SU 11:30-20:00, lounas 11:30-19:00.',
+        lunchPrices: 'Lounashinnat',
+        adultWeekday: 'Aikuinen MA-PE',
+        adultWeekend: 'Aikuinen LA-SU',
+        childrenAge: 'Lapset 2-11 v',
+        perYearOfAge: '1 €/ikävuosi',
     }
 };
 
