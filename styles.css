@@ -312,10 +312,75 @@ h3 {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   flex: 0 0 auto;
   font-size: 18px;
   font-weight: 750;
   letter-spacing: 0;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 34px;
+}
+
+/* 营业状态徽章 */
+.open-status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px;
+  margin: 0 0 26px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 15px;
+}
+
+.open-status:empty {
+  display: none;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #8e8e93;
+}
+
+.open-status.is-open .status-dot {
+  background: #1f9d55;
+  box-shadow: 0 0 0 4px rgba(31, 157, 85, 0.16);
+}
+
+.open-status.is-open strong {
+  color: #1a7f45;
+}
+
+.open-status.is-closed strong {
+  color: #c1121f;
+}
+
+.status-detail {
+  color: var(--muted);
+}
+
+.hours-content li.is-today {
+  color: var(--ink);
+}
+
+.hours-content li.is-today .day {
+  color: var(--accent);
+}
+
+/* 由 JS 填充的营业时间卡片内容，保持原有 h3 + p 排版 */
+.hours-compact {
+  display: contents;
 }
 
 .nav-links {

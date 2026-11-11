@@ -14,12 +14,16 @@
       content="Tee pöytävaraus Yi Sushiin puhelimitse."
     />
     <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png" />
+    <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
+    <meta property="og:image" content="https://www.yisushi.fi/assets/img/og-image.jpg" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="./index.html">Yi Sushi</a>
+        <a class="brand" href="./index.html"><img class="brand-logo" src="./assets/img/logo-mark.png" alt="" width="64" height="40" /><span>Yi Sushi</span></a>
         <button class="mobile-nav-toggle" type="button" data-translate="mobileMenu">Valikko</button>
         <div class="nav-links">
           <a href="./index.html" data-translate="home">Etusivu</a>
@@ -52,7 +56,7 @@
             Teethän pöytävarauksen puhelimitse numeroon:
           </p>
           <div class="actions">
-            <a href="tel:0449819446" class="phone-number">0449819446</a>
+            <a href="tel:+358449819446" class="phone-number">0449819446</a>
           </div>
         </div>
       </section>
@@ -62,6 +66,7 @@
       <p>© 2026 Yi Sushi. Vesikoskenkatu 11, 32200 Loimaa, Finland.</p>
     </footer>
 
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/site-info.js?v=4"></script>
+    <script src="./assets/js/main.js?v=4"></script>
   </body>
 </html>

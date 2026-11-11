@@ -11,12 +11,16 @@
     <meta property="og:title" content="Yhteystiedot - Yi Sushi" />
     <meta property="og:description" content="Ota yhteyttä Yi Sushiin." />
     <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png" />
+    <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
+    <meta property="og:image" content="https://www.yisushi.fi/assets/img/og-image.jpg" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="./index.html">Yi Sushi</a>
+        <a class="brand" href="./index.html"><img class="brand-logo" src="./assets/img/logo-mark.png" alt="" width="64" height="40" /><span>Yi Sushi</span></a>
         <button class="mobile-nav-toggle" type="button" data-translate="mobileMenu">Valikko</button>
         <div class="nav-links">
           <a href="./index.html" data-translate="home">Etusivu</a>
@@ -44,7 +48,7 @@
       <section class="contact-info">
         <article class="info-item">
           <span class="meta-label" data-translate="phone">Puhelin</span>
-          <h3><a href="tel:0449819446">0449819446</a></h3>
+          <h3><a href="tel:+358449819446">0449819446</a></h3>
         </article>
         <article class="info-item">
           <span class="meta-label" data-translate="address">Osoite</span>
@@ -53,12 +57,7 @@
         </article>
         <article class="info-item">
           <span class="meta-label" data-translate="openingHours">Aukioloajat</span>
-          <h3><span data-translate="weekdayRange">MA-PE</span> 10:30-20:00</h3>
-          <p>
-            <span data-translate="lunchLabel">Lounas</span> 10:30-19:00<br />
-            <span data-translate="weekendRange">LA-SU</span> 11:30-20:00<br />
-            <span data-translate="lunchLabel">Lounas</span> 11:30-19:00
-          </p>
+          <div class="hours-compact" data-site="hours-compact"></div>
         </article>
       </section>
     </main>
@@ -67,6 +66,7 @@
       <p>© 2026 Yi Sushi. Vesikoskenkatu 11, 32200 Loimaa, Finland.</p>
     </footer>
 
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/site-info.js?v=4"></script>
+    <script src="./assets/js/main.js?v=4"></script>
   </body>
 </html>

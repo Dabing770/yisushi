@@ -3,28 +3,8 @@ window.menuData = {
                        {
                            "items":  [
                                          {
-                                             "price":  "13,50 €",
-                                             "description":  "Lounas MA-PE 10:30-19:00",
-                                             "name":  "Aikuinen MA-PE"
-                                         },
-                                         {
-                                             "price":  "15,50 €",
-                                             "description":  "Lounas LA-SU 11:30-19:00",
-                                             "name":  "Aikuinen LA-SU"
-                                         },
-                                         {
-                                             "price":  "1 €/ikävuosi",
-                                             "description":  "Lapset 2-11-vuotiaat",
-                                             "name":  "Lapset 2-11 v"
-                                         }
-                                     ],
-                           "name":  "Lounas"
-                       },
-                       {
-                           "items":  [
-                                         {
                                              "price":  "13,80 €",
-                                             "description":  "Friteerattua kanaa maustettuna hapanilmeläkastikkeella",
+                                             "description":  "Friteerattua kanaa maustettuna hapanimeläkastikkeella",
                                              "name":  "Friteerattua kanaa hapanimeläkastikkeessa"
                                          },
                                          {
@@ -59,7 +39,7 @@ window.menuData = {
                            "items":  [
                                          {
                                              "price":  "6,50 €",
-                                             "description":  "Tlinen ja happaman mausteinen keitto herkullisilla chilin mausteilla.",
+                                             "description":  "Tulinen ja hapan mausteinen keitto herkullisilla chilin mausteilla.",
                                              "name":  "Hapan-chilikeitto"
                                          },
                                          {
@@ -74,7 +54,7 @@ window.menuData = {
                                          },
                                          {
                                              "price":  "6,50 €",
-                                             "description":  "Rapeat kevätrullat kasvistäyttteellä",
+                                             "description":  "Rapeat kevätrullat kasvistäytteellä",
                                              "name":  "Vege Kevätrulla 6kpl"
                                          },
                                          {
@@ -319,7 +299,7 @@ window.menuData = {
                                          },
                                          {
                                              "price":  "13,80 €",
-                                             "description":  "Friteerattua kanaa maustettuna hapanilmeläkastikkeella",
+                                             "description":  "Friteerattua kanaa maustettuna hapanimeläkastikkeella",
                                              "name":  "Friteerattua kanaa hapanimeläkastikkeessa"
                                          },
                                          {
@@ -439,7 +419,7 @@ window.menuData = {
                                          },
                                          {
                                              "price":  "13,80 €",
-                                             "description":  "Herkullinen ja mehukas possuruo, joka on friteerattu rapeaksi ja tarjoillaan herkullisessa hapanimeläkastikkeessa.",
+                                             "description":  "Herkullinen ja mehukas possuruoka, joka on friteerattu rapeaksi ja tarjoillaan herkullisessa hapanimeläkastikkeessa.",
                                              "name":  "Friteerattua possua hapanimeläkastikkeessa"
                                          },
                                          {
@@ -704,7 +684,7 @@ window.menuData = {
                                          },
                                          {
                                              "price":  "10,80 €",
-                                             "description":  "Friteerattua kanaa maustettuna hapanilmeläkastikkeella",
+                                             "description":  "Friteerattua kanaa maustettuna hapanimeläkastikkeella",
                                              "name":  "Friteerattua kanaa hapanimeläkastikkeessa"
                                          },
                                          {

@@ -14,7 +14,11 @@
       content="Sushi ja kiinalainen ravintola Loimaalla. Katso menu ja soita pöytävaraus."
     />
     <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png" />
+    <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" />
+    <meta property="og:image" content="https://www.yisushi.fi/assets/img/og-image.jpg" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body class="has-intro">
     <div class="intro" aria-label="Yi Sushi opening animation">
@@ -33,7 +37,7 @@
 
     <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="./index.html">Yi Sushi</a>
+        <a class="brand" href="./index.html"><img class="brand-logo" src="./assets/img/logo-mark.png" alt="" width="64" height="40" /><span>Yi Sushi</span></a>
         <button class="mobile-nav-toggle" type="button" data-translate="mobileMenu">Valikko</button>
         <div class="nav-links">
           <a href="./index.html" class="active" data-translate="home">Etusivu</a>
@@ -64,10 +68,11 @@
             keskustassa. Tervetuloa lounaalle, illalliselle tai tekemään
             pöytävaraus puhelimitse.
           </p>
+          <p class="open-status" data-site="open-status" aria-live="polite"></p>
           <div class="hero-actions">
             <a
               class="button primary"
-              href="tel:0449819446"
+              href="tel:+358449819446"
               data-translate="callButton"
             >
               Soita 0449819446
@@ -93,12 +98,7 @@
           <span class="feature-number" data-translate="openingHours">
             Aukioloajat
           </span>
-          <h3><span data-translate="weekdayRange">MA-PE</span> 10:30-20:00</h3>
-          <p>
-            <span data-translate="lunchLabel">Lounas</span> 10:30-19:00<br />
-            <span data-translate="weekendRange">LA-SU</span> 11:30-20:00<br />
-            <span data-translate="lunchLabel">Lounas</span> 11:30-19:00
-          </p>
+          <div class="hours-compact" data-site="hours-compact"></div>
         </article>
         <article>
           <span class="feature-number" data-translate="reservation">
@@ -132,11 +132,8 @@
       <section class="contact" id="contact">
         <p class="eyebrow" data-translate="contact">Yhteystiedot</p>
         <h2 data-translate="welcomeHeading">Tervetuloa Yi Sushiin.</h2>
-        <p data-translate="lunchSummary">
-          MA-PE 10:30-20:00, lounas 10:30-19:00. LA-SU 11:30-20:00,
-          lounas 11:30-19:00.
-        </p>
-        <a class="button primary" href="tel:0449819446">0449819446</a>
+        <p data-site="hours-summary"></p>
+        <a class="button primary" href="tel:+358449819446">0449819446</a>
       </section>
     </main>
 
@@ -144,6 +141,7 @@
       <p>© 2026 Yi Sushi. Vesikoskenkatu 11, 32200 Loimaa, Finland.</p>
     </footer>
 
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/site-info.js?v=4"></script>
+    <script src="./assets/js/main.js?v=4"></script>
   </body>
 </html>
